@@ -10,7 +10,6 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <script type="text/javascript" async="" src="./Interactive Human Anatomy Template [Front - Back]_files/analytics.js"></script>
     <script async="" src="./Interactive Human Anatomy Template [Front - Back]_files/js"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -29,9 +28,9 @@
     <meta name="description" content="Interactive male anatomy template front and back views with clickable body parts including head, arms, legs, chest, abdomen, etc. Easily customized with JavaScript and install it in your website.">
     <meta name="author" content="Human Anatomy Illustrations">
 
-    <title>Interactive Human Anatomy Template [Front - Back]</title>
+    <title>Injury Prevention Monitor</title>
     <!-- Open Graph for Facebook and twitter -->
-    <meta property="og:title" content="Interactive Human Anatomy Template [Front - Back]">
+    <meta property="og:title" content="">
     <meta property="og:type" content="product">
     <meta property="og:image" content="#assets/images/open-graph/human-anatomy-front-back.jpg">
     <meta property="og:url" content="#interactive-human-anatomy-front-back.html">
@@ -46,11 +45,11 @@
         }
     </script>
 
-    <link href="./Interactive Human Anatomy Template [Front - Back]_files/css" rel="stylesheet" type="text/css">
-    <link rel="icon" href="#assets/images/favicon.ico">
-    <link href="./Interactive Human Anatomy Template [Front - Back]_files/bootstrap.min.css" rel="stylesheet">
-    <link href="./Interactive Human Anatomy Template [Front - Back]_files/custom.min.css" rel="stylesheet">
-    <script id="fsc-api" src="./Interactive Human Anatomy Template [Front - Back]_files/fastspring-builder.min.js" type="text/javascript" data-storefront="anatomyill.onfastspring.com/popup-anatomyill">
+    <link href="/assets/css/css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="/assets/img/favicon.png">
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/custom.min.css" rel="stylesheet">
+    <script id="fsc-api" src="/assets/js/fastspring-builder.min.js" type="text/javascript" data-storefront="anatomyill.onfastspring.com/popup-anatomyill">
     </script>
     <style type="text/css">
         @font-face {
@@ -109,13 +108,35 @@
             src: url('https://cdn.loom.com/assets/fonts/inter/Inter-UI-BlackItalic.woff2') format('woff2');
         }
     </style>
+
+    <!-- Socket.io - aqui chamamos nosso socket. -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/jquery.min.js"></script>
+
+    <script>
+        var socket = io.connect();
+
+        socket.on('sensorLDR', function(valor) {
+            $("#luz").text(valor + ' %');
+        });
+
+        socket.on('sensorHIG_POTEN', function(hygrometer) {
+            $("#sensorHIG_POTEN").text(hygrometer + ' %');
+        });
+
+        $('#button').click(function(e) {
+            socket.emit('click');
+            e.preventDefault();
+        });
+    </script>
+
 </head>
 
 <body cz-shortcut-listen="true">
     <div class="top-logo">
         <div class="container">
             <a href="#">
-                <img width="450" height="150" src="./Interactive Human Anatomy Template [Front - Back]_files/logo.jpg" alt="Logo">
+                <img width="450" height="150" src="/assets/img/logo.jpg" alt="Logo IPM">
             </a>
         </div>
     </div>
@@ -228,9 +249,9 @@
 
     <span id="organs-tip"></span>
 
-    <script src="./Interactive Human Anatomy Template [Front - Back]_files/jquery.min.js"></script>
-    <script src="./Interactive Human Anatomy Template [Front - Back]_files/bootstrap.min.js"></script>
-    <script src="./Interactive Human Anatomy Template [Front - Back]_files/male2x.min.js"></script>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/male2x.min.js"></script>
 
     <!--scroll-top script-->
     <script>
