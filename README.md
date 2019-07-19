@@ -7,6 +7,8 @@
 O DashBoard do Monitor de Prevenção de Lesões, foi construido utilizando a tecnologia [NodeJS](https://nodejs.org/en/). 
 
 ## Instalação de Bibliotecas Dependentes do DashBoard
+
+Execute o comando a seguir dentro do diretório dashboard.
     
     npm install
 
@@ -86,3 +88,9 @@ O desenho esquemático do protótipo foi construido utilizando a ferramenta de m
 
 ### Gráficos
 - [ChartJS](https://www.chartjs.org/)
+
+# Créditos
+
+- [Jennifer Cabral](#)
+- [Francisco Rodrigues](https://rodriguesfas.com.br)
+- [Alex Ferreira](#)
