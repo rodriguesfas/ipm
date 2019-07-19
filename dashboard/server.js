@@ -21,11 +21,13 @@ const SerialPort = require("serialport");
 const Readline = SerialPort.parsers.Readline;
 const parser = new Readline();
 
+// Pagina do DashBoar.
 app.get("/", function(req, res) {
     res.sendfile("view/index.html");
 });
 
-const mySerial = new SerialPort("/dev/ttyUSB0", {
+// Porta Serial do Arduino.
+const mySerial = new SerialPort("/dev/ttyACM0", {
     baudRate: 9600
 });
 
@@ -36,15 +38,16 @@ mySerial.on("open", function() {
 });
 
 mySerial.on("data", function(data) {
-    // Send data in page web.
+    // Envia dados recebeidos para a pagina (DashBoard).
     io.emit("dataDuino", {
         value: data.toString()
     });
 
-    // Exibe no console o dado recebido do Arduino.
+    // Exibe no console os dados recebidos do Arduino.
     console.log(data.toString());
 });
 
+// Outras informações sobre quantos usuários estão conectados na pagina.
 var usuarios = 0;
 
 io.on("connection", function(socket) {

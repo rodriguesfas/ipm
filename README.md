@@ -1,6 +1,6 @@
 # Injury Prevention Monitor - IPM / Monitor de Prevenção de Lesões - MPL
 
-# Descrição
+![dashboard](https://github.com/rodriguesfas/Injury-Prevention-Monitor/user-guide/screenshot/dashboard.png)
 
 # DashBoard
 
@@ -54,12 +54,25 @@ O desenho esquemático do protótipo foi construido utilizando a ferramenta de m
 
 # Referências
 
+## Artigos
+- [Sistema Automático de Prevençãode Úlceras por Pressão](https://repositorio.uma.pt/handle/10400.13/75)
+
+## Paginas Web
+
+### Tutoriais Arduino
 - [Conversor HX711: Balança Digital com Sensor de Peso e Arduino Uno](http://blog.baudaeletronica.com.br/conversor-hx711-para-balanca-eletronica/)
 
 - [Criando uma Balança com o Arduino](https://www.robocore.net/tutoriais/celula-de-carga-hx711-com-arduino?fbclid=IwAR2aD6KqunSnPPSsosWZVWt0Pk9HB9HtG3jASjT7Ue2qxKIl7NotRoJ8ZkA)
 
 - [SENSOR DE PESO COM ARDUINO – A VARIAÇÃO DE UM STRAIN GAGE](https://blog.usinainfo.com.br/sensor-de-peso-com-arduino-variacao-de-um-strain-gage/)
 
-- [Humanan Atomy Illustrations Template](https://www.humananatomyillustrations.com/)
 
 - [O Arduino funciona como uma balança? Sim! Ele é capaz! - Módulo HX711](https://www.youtube.com/watch?v=-qLfybfvsHw&feature=push-u-sub&attr_tag=cvjlzRGy3V1M0wxC%3A6)
+
+- [Arduíno Gerando Gráficos Com Socket.io](http://clubedosgeeks.com.br/programacao/arduino-gerando-graficos-com-socket-io)
+
+### Desing Corpo Humando
+- [Humanan Atomy Illustrations Template](https://www.humananatomyillustrations.com/)
+
+### Gráficos
+- [ChartJS](https://www.chartjs.org/)
