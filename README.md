@@ -1,6 +1,6 @@
 # Injury Prevention Monitor - IPM / Monitor de Prevenção de Lesões - MPL
 
-![dashboard](https://github.com/rodriguesfas/Injury-Prevention-Monitor/user-guide/screenshot/dashboard.png)
+![dashboard](https://github.com/rodriguesfas/Injury-Prevention-Monitor/blob/master/user-guide/screenshot/dashboard.png)
 
 # DashBoard
 
