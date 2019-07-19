@@ -49,16 +49,18 @@ Dentro da pasta firmware, contem três diretórios: calibration, monitorcare e t
 
     http://localhost:3000 or http://127.0.0.1:3000
 
-# Parando o Servidor DashBoard
+# Para o Servidor DashBoard
 
     Crtl + c
 
 # Lista de Componentes do Protótipo
 
-- 2 Sensores de Peso 50Kg Célula de Carga.
-- 1 Módulo Conversor HX711.
-- 1 Arduino Uno.
-- N Jumpers.
+      Quant.  |            Item            |   Valor  |   Link 
+    :-------: | :------------------------: | :------: | :------: 
+        2     |  Sensor de Carga           | R$       | 
+        1     |  Módulo Conversor HX711    | R$       |  
+        1     |  Arduino Uno R3            | R$       |  
+        N     |  Fios e Jumpers            | R$       |  
 
 # Desenho Esquemático Do Protótipo
 
