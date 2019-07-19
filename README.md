@@ -4,13 +4,15 @@
 
 # DashBoard
 
-O DashBoard do Monitor de Prevenção de Lesões, foi construido utilizando a tecnologia servidor [NodeJS](https://nodejs.org/en/). 
+O DashBoard do Monitor de Prevenção de Lesões, foi construido utilizando a tecnologia [NodeJS](https://nodejs.org/en/). 
 
 ## Instalação de Bibliotecas Dependentes do DashBoard
     
     npm install
 
-### Configuração da Porta do Servidor
+### Configuração da Porta Arduino no Servidor
+
+Acesse o arquivo server.js nodiretório /dashboard/server.js , localize o bloco de código abaixo, e altere o nome da porta Serial conforme a porta do do seu computador. Exemplo: /dev/ttyUSB0 , /dev/ttyUSB1, /dev/ttyACM0 , entre outros.
 
     var mySerial = new SerialPort("/dev/ttyUSB0", {
         baudrate : 9600,
@@ -19,8 +21,16 @@ O DashBoard do Monitor de Prevenção de Lesões, foi construido utilizando a te
 
 # Firmware
 O código fonte do embarcado foi escrito na linguagem [Arduino](https://arduino.cc).
+O firmware está localizado no diretório: firmware/ .
+Dentro da pasta firmware, contem três diretórios: calibration, monitorcare e tests.
 
-## Instalação de Bibliotecas Dependentes do Firmware do Arduino   
+- calibration: código fonte para calibrar os sensores de carga. 
+
+- monitorcare: código fonte do embarcado.
+
+- testes: código de teste do embarcado.
+
+## Instalação de Bibliotecas Dependentes do Firmware Arduino   
 
 [HX711](https://github.com/bogde/HX711)
 
