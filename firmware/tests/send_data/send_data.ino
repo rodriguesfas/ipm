@@ -12,7 +12,7 @@
     Tutorial base: https://www.arduino.cc/reference/pt/language/functions/random-numbers/random/
 */
 
-long randNumber;
+long data[3];
 
 void setup()
 {
@@ -22,7 +22,21 @@ void setup()
 
 void loop()
 {
-    randNumber = random(0, 10);
-    Serial.println(randNumber);
+    data[1] = random(0, 10);
+    data[2] = random(11, 20);
+    data[3] = random(21, 30);
+
+    // Create JSON as a message.
+    String jsonString = "{\"s1\":\"";
+    jsonString += data[1];
+    jsonString +="\",\"s2\":\"";
+    jsonString += data[2];
+    jsonString +="\",\"s3\":\"";
+    jsonString += data[3];
+    jsonString +="\"}";
+
+    // Send message.
+    Serial.println(jsonString);
+
     delay(1000);
 }
