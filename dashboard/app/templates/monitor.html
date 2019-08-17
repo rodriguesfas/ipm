@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html class="h-100" lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon.png') }}">
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"> -->
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+    <link rel="icon" href="{{ url_for('static', filename='assets/img/favicon.png') }}">
+    <link href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/css/custom.min.css') }}" rel="stylesheet">
+
+</head>
+
+<body class="h-100" onload="javascript:exibeDataHora('hora');">
+
+    <div id="preloader">
+        <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
+            </svg>
+        </div>
+    </div>
+
+    <div id="main-wrapper" class="show menu-toggle">
+
+        <div class="content-body">
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-4 col-xl-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="media align-items-center mb-4">
+                                    <!--
+                                    <img class="mr-3" src="{{ url_for('static', filename='images/avatar/11.png') }}" width="80" height="80" alt="">
+                                -->
+
+                                    <div class="col">
+                                        <div class="card card-profile text-center">
+                                            <span class="mb-1 text-primary"><i class="icon-user"></i></span>
+                                            <p class="text-muted px-4">Leito 11</p>
+                                            <div class="text-muted px-4" id="hora"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="media-body">
+                                        <p class="text-muted mb-0">Paciente</p>
+                                        <h3 class="mb-0">Camila Maria</h3>
+                                    </div>
+                                </div>
+
+                                <h4>Prontuário</h4>
+                                <p class="text-muted">
+                                    Hi, I'm Pikamy, has been the industry standard dummy text ever since the 1500s.
+                                </p>
+                                <!--
+                                    <ul class="card-profile__info">
+                                        <li class="mb-1"><strong class="text-dark mr-4">Mobile</strong><span>01793931609</span></li>
+                                        <li><strong class="text-dark mr-4">Email</strong> <span>name@domain.com</span></li>
+                                    </ul>
+                                -->
+
+                                <hr />
+
+                                <div class="containerGraph">
+                                    <canvas id="myChartLine"></canvas>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6">
+                        {% include 'human.html' %}
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <span id="organs-tip"></span>
+    <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/male2x.min.js') }}"></script>
+
+    <!--  -->
+    <script src="{{ url_for('static', filename='assets/js/Chart.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/socket.io.js') }}"></script>
+
+    <script type="text/javascript" charset="utf-8">
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+        // request.
+        $(document).ready(function() {
+
+            socket.on('connect', function() {
+                socket.emit('connected');
+            });
+
+        });
+
+        // responce.
+        socket.on('message', function(data) {
+            console.log(data)
+                //$('h1').text(data) // exibe informações na pagina.
+        });
+
+        var ctx = document.getElementById('myChartLine').getContext('2d');
+        var chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'line',
+            // The data for our dataset
+            data: {
+                labels: [],
+                datasets: [{
+                    label: "S1",
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    data: [],
+                    fill: false,
+                    pointStyle: 'circle',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    pointRadius: 5,
+                    pointHoverRadius: 7,
+                    lineTension: 0,
+                }, {
+                    label: "S2",
+                    data: [],
+                    fill: false,
+                    pointStyle: 'circle',
+                    borderColor: 'rgba(192, 192, 192, 1)',
+                    backgroundColor: 'rgba(192, 192, 192, 0.2)',
+                    pointRadius: 5,
+                    pointHoverRadius: 7,
+                    lineTension: 0,
+                }, {
+                    label: "S3",
+                    data: [],
+                    fill: false,
+                    pointStyle: 'circle',
+                    borderColor: 'rgba(240, 83, 55, 1)',
+                    backgroundColor: 'rgba(240, 83, 55, 0.2)',
+                    pointRadius: 5,
+                    pointHoverRadius: 7,
+                    lineTension: 0,
+                }, {
+                    label: "S4",
+                    data: [],
+                    fill: false,
+                    pointStyle: 'circle',
+                    borderColor: 'rgba(255, 232, 66, 1)',
+                    backgroundColor: 'rgba(255, 232, 66, 0.2)',
+                    pointRadius: 5,
+                    pointHoverRadius: 7,
+                    lineTension: 0,
+                }]
+            },
+            // Configuration options go here
+            options: {}
+        });
+
+        socket.on('temp', function(data) { //As a temp data is received 
+            console.log(data);
+
+            //document.getElementById('date').innerHTML = data.date; //update the date
+
+            if (chart.data.labels.length != 5) { //If we have less than 15 data points in the graph
+
+                chart.data.labels.push(data.time); //Add time in x-asix
+
+                if (data.s3 > 5) {
+                    mudar_estado("frt_spots");
+                }
+
+                chart.data.datasets.forEach((dataset) => {
+                    if (dataset.label == "S1") {
+                        dataset.data.push(data.s1); //Add temp in y-axis
+                    }
+                    if (dataset.label == "S2") {
+                        dataset.data.push(data.s2); //Add temp in y-axis
+                    }
+                    if (dataset.label == "S3") {
+                        dataset.data.push(data.s3); //Add temp in y-axis
+                    }
+                    if (dataset.label == "S4") {
+                        dataset.data.push(data.s4); //Add temp in y-axis
+                    }
+                });
+
+            } else { //If there are already 15 data points in the graph.
+                chart.data.labels.shift(); //Remove first time data
+                chart.data.labels.push(data.time); //Insert latest time data
+
+                chart.data.datasets.forEach((dataset) => {
+                    if (dataset.label == "S1") {
+                        dataset.data.shift(); //Remove first temp data
+                        dataset.data.push(data.s1); //Insert latest temp data
+                    }
+                    if (dataset.label == "S2") {
+                        dataset.data.shift(); //Remove first temp data
+                        dataset.data.push(data.s2); //Insert latest temp data
+                    }
+                    if (dataset.label == "S3") {
+                        dataset.data.shift(); //Remove first temp data
+                        dataset.data.push(data.s3); //Insert latest temp data
+                    }
+                    if (dataset.label == "S4") {
+                        dataset.data.shift(); //Remove first temp data
+                        dataset.data.push(data.s4); //Insert latest temp data
+                    }
+                });
+            }
+
+            chart.update(); //Update the graph.
+        });
+
+        function mudar_estado(el) {
+            var display = document.getElementById(el).style.display;
+
+            if (display == "none")
+                document.getElementById(el).style.display = 'block';
+            else
+                document.getElementById(el).style.display = 'none';
+        }
+    </script>
+
+    <script src="{{ url_for('static', filename='plugins/common/common.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/custom.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/settings.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/gleek.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/styleSwitcher.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/datetime.js') }}"></script>
+
+</body>
+
+</html>

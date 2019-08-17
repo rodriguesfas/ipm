@@ -25,6 +25,7 @@ void loop()
     data[1] = random(0, 10);
     data[2] = random(11, 20);
     data[3] = random(21, 30);
+    data[4] = random(31, 40);
 
     // Create JSON as a message.
     String jsonString = "{\"s1\":\"";
@@ -33,6 +34,8 @@ void loop()
     jsonString += data[2];
     jsonString +="\",\"s3\":\"";
     jsonString += data[3];
+    jsonString +="\",\"s4\":\"";
+    jsonString += data[4];
     jsonString +="\"}";
 
     // Send message.

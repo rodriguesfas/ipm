@@ -2,5 +2,5 @@
     "board": "arduino:avr:uno",
     "programmer": "AVR ISP",
     "port": "/dev/ttyACM0",
-    "sketch": "firmware/tests/send_data/send_data.ino"
+    "sketch": "firmware/calibration/calibration.ino"
 }

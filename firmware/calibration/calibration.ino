@@ -1,64 +1,43 @@
-/**
-
+/*
+     Q0481-Sketch-Calibrar
+     AUTOR:   BrincandoComIdeias
+     LINK:    https://www.youtube.com/brincandocomideias ; https://cursodearduino.net/
+     COMPRE:  https://www.arducore.com.br/
+     SKETCH:  Calibrar Balanca com módulo HX711
+     DATA:    04/07/2019
 */
 
-#include "HX711.h"
+// INCLUSÃO DE BIBLIOTECAS
+#include <HX711.h>
 
-#define DOUT A0
-#define CLK A1
+// DEFINIÇÕES DE PINOS
+#define pinDT  2
+#define pinSCK  3
 
-HX711 peso;                       // instancia Balança HX711.
-float calibration_factor = 34730; // fator de calibração para teste inicial.
+// INSTANCIANDO OBJETOS
+HX711 scale;
 
-void setup()
-{
-  Serial.begin(9600);
-  peso.begin(DOUT, CLK); // inicializa a balança
-  Serial.println();
-  Serial.println("Calibração da Balança.");
-  peso.set_scale(); // configura a escala da Balança
-  zerapeso();       // zera a Balança
+// DECLARAÇÃO DE VARIÁVEIS
+float medida = 0;
+
+void setup() {
+  Serial.begin(57600);
+
+  scale.begin(pinDT, pinSCK); // CONFIGURANDO OS PINOS DA BALANÇA
+  scale.set_scale(); // LIMPANDO O VALOR DA ESCALA
+
+  delay(2000);
+  scale.tare(); // ZERANDO A BALANÇA PARA DESCONSIDERAR A MASSA DA ESTRUTURA
+
+  Serial.println("Balança Zerada");
 }
 
-void zerapeso()
-{
-  Serial.println();
-  peso.tare(); // zera a Balança.
-  Serial.println("Zerando a Balança.");
-}
+void loop() {
 
-void loop()
-{
-  peso.set_scale(calibration_factor); // ajusta fator de calibração.
-  Serial.print("Peso: ");             // imprime no monitor serial.
-  Serial.print(peso.get_units(), 3);  // imprime peso da balança com 3 casas decimais.
-  Serial.print(" kg");
-  Serial.print("      Fator de Calibração: "); // imprime no monitor serial.
-  Serial.println(calibration_factor);          // imprime fator de calibração.
+  medida = scale.get_units(5); // SALVANDO NA VARIAVEL O VALOR DA MÉDIA DE 5 MEDIDAS
+  Serial.println(medida, 3); // ENVIANDO PARA MONITOR SERIAL A MEDIDA COM 3 CASAS DECIMAIS
 
-  delay(500);
-
-  if (Serial.available()) // reconhece letra para ajuste do fator de calibração.
-  {
-    char temp = Serial.read();
-    if (temp == '+' || temp == 'a') // a = aumenta 10
-      calibration_factor += 10;
-    else if (temp == '-' || temp == 'z') // z = diminui 10
-      calibration_factor -= 10;
-    else if (temp == 's') // s = aumenta 100
-      calibration_factor += 100;
-    else if (temp == 'x') // x = diminui 100
-      calibration_factor -= 100;
-    else if (temp == 'd') // d = aumenta 1000
-      calibration_factor += 1000;
-    else if (temp == 'c') // c = diminui 1000
-      calibration_factor -= 1000;
-    else if (temp == 'f') // f = aumenta 10000
-      calibration_factor += 10000;
-    else if (temp == 'v') // v = dimuni 10000
-      calibration_factor -= 10000;
-    else if (temp == 't')
-      zerapeso(); // t = zera a Balança
-  }
-
+  scale.power_down(); // DESLIGANDO O SENSOR
+  delay(500); // AGUARDA 5 SEGUNDOS
+  scale.power_up(); // LIGANDO O SENSOR
 }
