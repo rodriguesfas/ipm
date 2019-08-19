@@ -1,0 +1,30 @@
+<div class="nk-sidebar">
+    <div class="nk-nav-scroll">
+        <ul class="metismenu" id="menu">
+            <li>
+                <a href="{{ url_for('dashboard') }}">
+                    <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('patients') }}">
+                    <i class="icon-user menu-icon"></i><span class="nav-text">Pacientes</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('login_monitor') }}">
+                    <i class="icon-graph menu-icon"></i><span class="nav-text">Monitor</span>
+                </a>
+            </li>
+            <li>
+                <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                    <i class="icon-speedometer menu-icon"></i><span class="nav-text">Outros</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li><a href="./index.html">Home 1</a></li>
+                    <!-- <li><a href="./index-2.html">Home 2</a></li> -->
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

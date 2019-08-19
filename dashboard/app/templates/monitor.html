@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>{% block title %}{% endblock %}</title>
+    <title>{% block title %}IPM-Monitor{% endblock %}</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon.png') }}">
     <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"> -->
@@ -14,7 +14,6 @@
     <link rel="icon" href="{{ url_for('static', filename='assets/img/favicon.png') }}">
     <link href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='assets/css/custom.min.css') }}" rel="stylesheet">
-
 </head>
 
 <body class="h-100" onload="javascript:exibeDataHora('hora');">
@@ -41,24 +40,25 @@
                                     <img class="mr-3" src="{{ url_for('static', filename='images/avatar/11.png') }}" width="80" height="80" alt="">
                                 -->
 
+                                    <a href="{{ url_for('dashboard') }}">
+                                        <img src="{{ url_for('static', filename='') }}./images/logo-compact.png" alt="" width="40%">
+                                    </a>
                                     <div class="col">
                                         <div class="card card-profile text-center">
                                             <span class="mb-1 text-primary"><i class="icon-user"></i></span>
-                                            <p class="text-muted px-4">Leito 11</p>
+                                            <p class="text-muted px-4">Leito {{data.bed}}</p>
                                             <div class="text-muted px-4" id="hora"></div>
                                         </div>
                                     </div>
 
                                     <div class="media-body">
                                         <p class="text-muted mb-0">Paciente</p>
-                                        <h3 class="mb-0">Camila Maria</h3>
+                                        <h3 class="mb-0">{{data.name}}</h3>
                                     </div>
                                 </div>
 
                                 <h4>Prontuário</h4>
-                                <p class="text-muted">
-                                    Hi, I'm Pikamy, has been the industry standard dummy text ever since the 1500s.
-                                </p>
+                                <p class="text-muted">{{data.description}}</p>
                                 <!--
                                     <ul class="card-profile__info">
                                         <li class="mb-1"><strong class="text-dark mr-4">Mobile</strong><span>01793931609</span></li>
@@ -89,9 +89,9 @@
 
     <span id="organs-tip"></span>
     <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+    <!--
     <script src="{{ url_for('static', filename='assets/js/male2x.min.js') }}"></script>
-
-    <!--  -->
+      -->
     <script src="{{ url_for('static', filename='assets/js/Chart.min.js') }}"></script>
     <script src="{{ url_for('static', filename='assets/js/socket.io.js') }}"></script>
 
@@ -122,10 +122,10 @@
                 labels: [],
                 datasets: [{
                     label: "S1",
-                    borderColor: 'rgba(75, 192, 192, 1)',
                     data: [],
                     fill: false,
                     pointStyle: 'circle',
+                    borderColor: 'rgba(75, 192, 192, 1)',
                     backgroundColor: 'rgba(75, 192, 192, 0.2)',
                     pointRadius: 5,
                     pointHoverRadius: 7,
@@ -145,8 +145,8 @@
                     data: [],
                     fill: false,
                     pointStyle: 'circle',
-                    borderColor: 'rgba(240, 83, 55, 1)',
-                    backgroundColor: 'rgba(240, 83, 55, 0.2)',
+                    borderColor: 'rgba(255, 232, 66, 1)',
+                    backgroundColor: 'rgba(255, 232, 66, 0.2)',
                     pointRadius: 5,
                     pointHoverRadius: 7,
                     lineTension: 0,
@@ -155,8 +155,8 @@
                     data: [],
                     fill: false,
                     pointStyle: 'circle',
-                    borderColor: 'rgba(255, 232, 66, 1)',
-                    backgroundColor: 'rgba(255, 232, 66, 0.2)',
+                    borderColor: 'rgba(240, 83, 55, 1)',
+                    backgroundColor: 'rgba(240, 83, 55, 0.2)',
                     pointRadius: 5,
                     pointHoverRadius: 7,
                     lineTension: 0,

@@ -23,11 +23,11 @@ Todas essas tecnologias foram empregadas na criação da Interface Gráfica do U
 ## Instalação de Bibliotecas Dependentes do DashBoard
 Execute o comando a seguir dentro do diretório dashboard.
 
-    pip install flask
-    pip install flask_socketio
-    pip install socketio
-    pip install gevent
-    pip install pyserial
+    sudo pip install -r requirements.txt
+
+    ou
+
+    pip3 install cffi
 
 ### Configuração da Porta Arduino no Servidor
 
