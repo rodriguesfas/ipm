@@ -18,7 +18,7 @@
 #define pesoMin 0.010
 #define pesoMax 100.0
 
-#define escala 351666.0f
+#define escala 24344.0f
 
 // INSTANCIANDO OBJETOS
 HX711 scale;

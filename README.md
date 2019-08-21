@@ -1,6 +1,6 @@
 # Injury Prevention Monitor - IPM / Monitor de Prevenção de Lesões - MPL
 
-![dashboard](https://github.com/rodriguesfas/Injury-Prevention-Monitor/blob/master/user-guide/screenshot/dashboard.png)
+![dashboard]()
 
 # DashBoard
 
@@ -20,7 +20,11 @@ Outras tecnologia empregadas na consturção do IPM foram as linguagens de progr
 
 Todas essas tecnologias foram empregadas na criação da Interface Gráfica do Usuário (GUI) do sistema IPM.
 
-## Instalação de Bibliotecas Dependentes do DashBoard
+## Banco de Dados
+
+- [MongoDB](https://mongodb.com): é um software de banco de escrito na linguagem de programação C++ (o que o torna portável para diferentes sistemas operacionais). Classificado como um programa de banco de dados NoSQL, o MongoDB usa documentos semelhantes a JSON com esquemas, lançado em fevereiro de 2009 pela empresa 10gen e seu desenvolvimento durou quase dois anos, tendo iniciado em 2007. Esse banco de dados foi adotado por entender-se que possui as caracteristicas desejadas para aplicação construida, tais caracteristicas são: banco de dados não relacional, orientado a documento, gratuito, código aberto, multiplataforma e de alta performance para trabalhar com BigData (grande volume de dados).
+
+## Instalação das Bibliotecas Dependentes para o DashBoard
 Execute o comando a seguir dentro do diretório dashboard.
 
     sudo pip install -r requirements.txt
@@ -31,9 +35,11 @@ Execute o comando a seguir dentro do diretório dashboard.
 
 ### Configuração da Porta Arduino no Servidor
 
-Acesse o arquivo server.js nodiretório /dashboard/server.js , localize o bloco de código abaixo, e altere o nome da porta Serial conforme a porta do do seu computador. Exemplo: /dev/ttyUSB0 , /dev/ttyUSB1, /dev/ttyACM0 , entre outros.
+Acesse o arquivo serial_monitor.py nodiretório /dashboard/app/arduino , localize o bloco de código abaixo, e altere o nome da porta Serial conforme a porta USB do seu computador. 
 
-    arduino = serial.Serial("/dev/ttyACM0", timeout=1)
+Exemplos: /dev/ttyUSB0 , /dev/ttyUSB1, /dev/ttyACM0 , entre outros.
+
+    port = "/dev/ttyACM0"
 
 # Firmware
 [É um software interpolado num dispositivo de hardware que permite a leitura e execução de software, porém não permite modificação. O termo firmware foi originado para indicar um substituinte de hardware em microcontroladores. Em outras palavras, o firmware é um controlador de entrada e saída de baixo nível que gerencia dispositivos de hardware. No computador, ele permite a comunicação entre software e hardware. A linguagem de programação dos firmwares é, primordialmente, a linguagem de máquina, mas hoje alguns microcontroladores interpretam também, funções da linguagem C.](http://www.sbpcnet.org.br/livro/62ra/arquivos/jovem/THA%C3%8DSA%20ALVES%20ANDRADE.pdf)
@@ -58,7 +64,7 @@ Dentro da pasta firmware, contem três outros três diretórios: calibration, mo
 	or
     sudo chmod a+rw /dev/ttyUSB0
 
-# Inicar o Servidor DashBoard
+# Iniciando o Servidor
 Para iniciar o servidor que executa o DashBoard do IPM, é necessário acessar o diretório dashboard e executar no terminal o seguinte comando:
 
     export FLASK_APP=dashboard
@@ -74,23 +80,13 @@ Após executado o comando anterior, abra qualquer navegador de internet (recomen
     
     http://127.0.0.1:9000
 
-# Parar o Servidor DashBoard
+# Parando o Servidor
 Para parar a execução do servidor do DashBoard use o comando:
 
     Crtl + c
 
-# Lista de Componentes do Protótipo
-
-      Quant.  |            Item            |   Valor  |   Link 
-    :-------: | :------------------------: | :------: | :------: 
-        2     |  Sensor de Carga           | R$       | 
-        1     |  Módulo Conversor HX711    | R$       |  
-        1     |  Arduino Uno R3            | R$       |  
-        N     |  Fios e Jumpers            | R$       |  
-
-# Desenho Esquemático Do Protótipo
-
-O desenho esquemático do protótipo foi construido utilizando a ferramenta de modelagem [Fretzing](https://fritzing.org/home/).
+# Experimentos
+Os esperimentos realizados encontram-se na pasta /doc/ arquivo EXPERIMENTO.md
 
 # Referências
 

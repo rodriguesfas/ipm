@@ -72,6 +72,13 @@
                                     <canvas id="myChartLine"></canvas>
                                 </div>
 
+                                <!-- /#log
+                                <div id="sensor1">s1:</div>
+                                <div id="sensor2">s2:</div>
+                                <div id="sensor3">s3:</div>
+                                <div id="sensor4">s4:</div>
+                                 -->
+
                             </div>
                         </div>
                     </div>
@@ -100,17 +107,16 @@
 
         // request.
         $(document).ready(function() {
-
             socket.on('connect', function() {
                 socket.emit('connected');
             });
-
         });
 
         // responce.
         socket.on('message', function(data) {
-            console.log(data)
-                //$('h1').text(data) // exibe informações na pagina.
+            // console.log(data)
+            // $('h1').text(data) // exibe informações na pagina.
+            socket.emit("message", "HELLO WORLD");
         });
 
         var ctx = document.getElementById('myChartLine').getContext('2d');
@@ -163,34 +169,48 @@
                 }]
             },
             // Configuration options go here
-            options: {}
+            options: {
+                responsive: true,
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Tempo'
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'mmHG'
+                        }
+                    }]
+                }
+            }
         });
 
-        socket.on('temp', function(data) { //As a temp data is received 
-            console.log(data);
+        socket.on('graphic_sensors', function(data) { //As a graphic_sensors data is received 
+            //console.log(data);
 
             //document.getElementById('date').innerHTML = data.date; //update the date
 
-            if (chart.data.labels.length != 5) { //If we have less than 15 data points in the graph
+            if (chart.data.labels.length != 10) { //If we have less than 15 data points in the graph
 
                 chart.data.labels.push(data.time); //Add time in x-asix
 
-                if (data.s3 > 5) {
-                    mudar_estado("frt_spots");
-                }
-
                 chart.data.datasets.forEach((dataset) => {
                     if (dataset.label == "S1") {
-                        dataset.data.push(data.s1); //Add temp in y-axis
+                        dataset.data.push(data.s1); //Add graphic_sensors in y-axis
                     }
                     if (dataset.label == "S2") {
-                        dataset.data.push(data.s2); //Add temp in y-axis
+                        dataset.data.push(data.s2);
                     }
                     if (dataset.label == "S3") {
-                        dataset.data.push(data.s3); //Add temp in y-axis
+                        dataset.data.push(data.s3);
                     }
                     if (dataset.label == "S4") {
-                        dataset.data.push(data.s4); //Add temp in y-axis
+                        dataset.data.push(data.s4);
                     }
                 });
 
@@ -200,20 +220,20 @@
 
                 chart.data.datasets.forEach((dataset) => {
                     if (dataset.label == "S1") {
-                        dataset.data.shift(); //Remove first temp data
-                        dataset.data.push(data.s1); //Insert latest temp data
+                        dataset.data.shift(); //Remove first graphic_sensors data
+                        dataset.data.push(data.s1); //Insert latest graphic_sensors data
                     }
                     if (dataset.label == "S2") {
-                        dataset.data.shift(); //Remove first temp data
-                        dataset.data.push(data.s2); //Insert latest temp data
+                        dataset.data.shift();
+                        dataset.data.push(data.s2);
                     }
                     if (dataset.label == "S3") {
-                        dataset.data.shift(); //Remove first temp data
-                        dataset.data.push(data.s3); //Insert latest temp data
+                        dataset.data.shift();
+                        dataset.data.push(data.s3);
                     }
                     if (dataset.label == "S4") {
-                        dataset.data.shift(); //Remove first temp data
-                        dataset.data.push(data.s4); //Insert latest temp data
+                        dataset.data.shift();
+                        dataset.data.push(data.s4);
                     }
                 });
             }
@@ -221,13 +241,73 @@
             chart.update(); //Update the graph.
         });
 
-        function mudar_estado(el) {
-            var display = document.getElementById(el).style.display;
+        socket.on('notification', function(data) {
+            //$('#sensor1').html(data[0]['s1']);
+            //$('#sensor2').html(data[1]['s2']);
+            //$('#sensor3').html(data[2]['s3']);
+            //$('#sensor4').html(data[3]['s4']);
 
-            if (display == "none")
-                document.getElementById(el).style.display = 'block';
+            console.log(data[0]['s1']);
+            console.log(data[1]['s2']);
+            console.log(data[2]['s3']);
+            console.log(data[3]['s4']);
+
+            if (data[0]['s1'] > 32) {
+                status("frt_25");
+                status("frt_27");
+                status("frt_29");
+                status("frt_31");
+                status("frt_33");
+            }
+
+            /*
+            if (data[1]['s2'] > 32) {
+                // braço direito
+                status("frt_13");
+                status("frt_15");
+                status("frt_17");
+                status("frt_19");
+                status("frt_21");
+                status("frt_23");
+            }
+
+            if (data[2]['s3'] > 32) {
+
+                // perna direita
+                status("frt_14");
+                status("frt_16");
+                status("frt_18");
+                status("frt_20");
+                status("frt_22");
+                status("frt_24");
+
+                //perna esquerda
+                status("frt_26");
+                status("frt_28");
+                status("frt_30");
+                status("frt_32");
+                status("frt_34");
+            }
+
+            if (data[3]['s4'] > 32) {
+                status("frt_1");
+                status("frt_8");
+                status("frt_9");
+                status("frt_10");
+                status("frt_11");
+                status("frt_12");
+            }
+            */
+
+        });
+
+        function status(id) {
+            var fill = document.getElementById(id).style.fill;
+
+            if (fill == "rgb(255, 255, 255)")
+                document.getElementById(id).style.fill = 'rgb(255, 0, 0)';
             else
-                document.getElementById(el).style.display = 'none';
+                document.getElementById(id).style.fill = 'rgb(255, 255, 255)';
         }
     </script>
 

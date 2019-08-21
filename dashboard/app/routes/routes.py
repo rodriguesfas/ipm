@@ -6,12 +6,10 @@ from app import app
 
 
 
-
-
-
 @app.route('/patient')
 def patient():
     return render_template("patient.html")
+
 
 
 

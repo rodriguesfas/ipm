@@ -22,10 +22,10 @@ void setup()
 
 void loop()
 {
-    data[1] = random(0, 10);
-    data[2] = random(11, 20);
-    data[3] = random(21, 30);
-    data[4] = random(31, 40);
+    data[1] = random(0, 100);
+    data[2] = random(11, 100);
+    data[3] = random(21, 100);
+    data[4] = random(0, 100);
 
     // Create JSON as a message.
     String jsonString = "{\"s1\":\"";
