@@ -1,0 +1,3 @@
+# run doc
+
+mkdocs serve
