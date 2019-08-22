@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Hardware - IPM</title>
+  <title>Firmware - IPM</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Hardware";
-    var mkdocs_page_input_path = "hardware.md";
+    var mkdocs_page_name = "Firmware";
+    var mkdocs_page_input_path = "firmware.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -75,16 +75,17 @@
           
             <li class="toctree-l1 current">
 		
-    <a class="current" href="./">Hardware</a>
+    <a class="current" href="./">Firmware</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#hardware">Hardware</a></li>
+    <li class="toctree-l2"><a href="#codigo-arduino">Código Arduino</a></li>
+    
+
+    <li class="toctree-l2"><a href="#instalacao-de-bibliotecas-dependentes-do-firmware-arduino">Instalação de Bibliotecas Dependentes do Firmware Arduino</a></li>
     
         <ul>
         
-            <li><a class="toctree-l3" href="#firmware">Firmware</a></li>
-        
-            <li><a class="toctree-l3" href="#instalacao-de-bibliotecas-dependentes-do-firmware-arduino">Instalação de Bibliotecas Dependentes do Firmware Arduino</a></li>
+            <li><a class="toctree-l3" href="#configuracoes-da-placa-arduino">Configurações da Placa Arduino</a></li>
         
         </ul>
     
@@ -94,12 +95,17 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../hardware/">Hardware</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../references/">Referências</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../todo/">Todo</a>
+    <a class="" href="../todo/">Atividades Futuras</a>
 	    </li>
           
         </ul>
@@ -124,7 +130,7 @@
     
       
     
-    <li>Hardware</li>
+    <li>Firmware</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -134,8 +140,7 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="hardware">Hardware</h1>
-<h2 id="firmware">Firmware</h2>
+                <h2 id="codigo-arduino">Código Arduino</h2>
 <p><a href="http://www.sbpcnet.org.br/livro/62ra/arquivos/jovem/THA%C3%8DSA%20ALVES%20ANDRADE.pdf">É um software interpolado num dispositivo de hardware que permite a leitura e execução de software, porém não permite modificação. O termo firmware foi originado para indicar um substituinte de hardware em microcontroladores. Em outras palavras, o firmware é um controlador de entrada e saída de baixo nível que gerencia dispositivos de hardware. No computador, ele permite a comunicação entre software e hardware. A linguagem de programação dos firmwares é, primordialmente, a linguagem de máquina, mas hoje alguns microcontroladores interpretam também, funções da linguagem C.</a></p>
 <p>O código fonte do embarcado foi escrito na linguagem <a href="https://www.arduino.cc/reference/pt/">Arduino</a>. Esse firmware pode ser localizado no diretório: firmware.
 Dentro da pasta firmware, contem três outros três diretórios: calibration, monitorcare e tests.</p>
@@ -166,7 +171,7 @@ sudo chmod a+rw /dev/ttyUSB0
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../references/" class="btn btn-neutral float-right" title="Referências">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../hardware/" class="btn btn-neutral float-right" title="Hardware">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../experiments/" class="btn btn-neutral" title="Experimentos"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -198,7 +203,7 @@ sudo chmod a+rw /dev/ttyUSB0
         <span><a href="../experiments/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../references/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../hardware/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
