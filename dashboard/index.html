@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>DashBoard - IPM</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "DashBoard";
+    var mkdocs_page_input_path = "dashboard.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> IPM</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Início</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../credits/">Créditos</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">DashBoard</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#dashboard">DashBoard</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#tecnologias-utilizadas-na-construcao-do-dashboard">Tecnologias utilizadas na construção do DashBoard</a></li>
+        
+            <li><a class="toctree-l3" href="#instalacao-das-bibliotecas-dependentes-para-o-dashboard">Instalação das Bibliotecas Dependentes para o DashBoard</a></li>
+        
+            <li><a class="toctree-l3" href="#configuracao-da-porta-arduino-no-servidor">Configuração da Porta Arduino no Servidor</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#iniciando-o-servidor">Iniciando o Servidor</a></li>
+    
+
+    <li class="toctree-l2"><a href="#parando-o-servidor">Parando o Servidor</a></li>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../database/">Database</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../experiments/">Experimentos</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../firmware/">Firmware</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../hardware/">Hardware</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../references/">Referências</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../todo/">Atividades Futuras</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">IPM</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>DashBoard</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="dashboard">DashBoard</h1>
+<p><img alt="dashboard" src="" /></p>
+<h2 id="tecnologias-utilizadas-na-construcao-do-dashboard">Tecnologias utilizadas na construção do DashBoard</h2>
+<p>Todas essas tecnologias a seguir, foram empregadas na criação da Interface Gráfica do Usuário (GUI) do sistema IPM.</p>
+<p><a href="http://flask.pocoo.org/">Flask</a> é um pequeno framework web escrito em Python e baseado na biblioteca WSGI Werkzeug e na biblioteca de Jinja2. Flask está disponível sob os termos da Licença BSD. Flask tem a flexibilidade da linguagem de programação Python e provê um modelo simples para desenvolvimento web.</p>
+<p>Outras tecnologia empregadas na consturção do IPM foram as linguagens de programação <a href="">Python</a> e <a href="">JavaScript</a> e as linguagens de marcação <a href="">HTML</a> e <a href="">CSS</a>.</p>
+<ul>
+<li>
+<p><a href="https://www.python.org/">Python</a>: é uma linguagem de programação de alto nível, interpretada, de script, imperativa, orientada a objetos, funcional, de tipagem dinâmica e forte. Foi lançada por Guido van Rossum em 1991. <a href="https://www.python.org/">Site Oficial</a></p>
+</li>
+<li>
+<p><a href="https://pt.wikipedia.org/wiki/JavaScript">JavaScript</a>: JavaScript, frequentemente abreviado como JS, é uma linguagem de programação interpretada de alto nível, caracterizada também, como dinâmica, fracamente tipificada, prototype-based e multi-paradigma. Juntamente com HTML e CSS, o JavaScript é uma das três principais tecnologias da World Wide Web. <a href="https://www.javascript.com/">Site Oficial</a></p>
+</li>
+<li>
+<p><a href="https://pt.wikipedia.org/wiki/HTML">HTML</a>: é uma linguagem de marcação utilizada na construção de páginas na Web. Documentos HTML podem ser interpretados por navegadores. A tecnologia é fruto da junção entre os padrões HyTime e SGML. HyTime é um padrão para a representação estruturada de hipermídia e conteúdo baseado em tempo. <a href="https://www.w3.org/html/">Site Oficial</a></p>
+</li>
+<li>
+<p><a href="https://pt.wikipedia.org/wiki/Cascading_Style_Sheets">CSS</a>: do inglês "Cascading Style Sheets" é um mecanismo para adicionar estilo a um documento web. O código CSS pode ser aplicado diretamente nas tags ou ficar contido dentro de tags. Também é possível, em vez de colocar a formatação dentro do documento, criar um link para um arquivo CSS que contém os estilos. <a href="https://www.w3.org/Style/CSS/Overview.en.html">Site Oficial</a></p>
+</li>
+</ul>
+<h2 id="instalacao-das-bibliotecas-dependentes-para-o-dashboard">Instalação das Bibliotecas Dependentes para o DashBoard</h2>
+<p>Execute o comando a seguir dentro do diretório dashboard.</p>
+<pre><code>sudo pip install -r requirements.txt
+
+ou
+
+pip3 install cffi
+</code></pre>
+<h2 id="configuracao-da-porta-arduino-no-servidor">Configuração da Porta Arduino no Servidor</h2>
+<p>Acesse o arquivo serial_monitor.py nodiretório /dashboard/app/arduino , localize o bloco de código abaixo, e altere o nome da porta Serial conforme a porta USB do seu computador. </p>
+<p>Exemplos: /dev/ttyUSB0 , /dev/ttyUSB1, /dev/ttyACM0 , entre outros.</p>
+<pre><code>port = "/dev/ttyACM0"
+</code></pre>
+<h1 id="iniciando-o-servidor">Iniciando o Servidor</h1>
+<p>Para iniciar o servidor que executa o DashBoard do IPM, é necessário acessar o diretório dashboard e executar no terminal o seguinte comando:</p>
+<pre><code>python run.py
+</code></pre>
+<p>Após executado o comando anterior, abra qualquer navegador de internet (recomendado usar o navegador <a href="https://www.google.com/intl/pt-BR/chrome/">Google Chrome</a>) e digite na URL o seguinte endereço para acessar a pagina:</p>
+<pre><code>http://localhost:9000
+ou
+http://127.0.0.1:9000
+</code></pre>
+<h1 id="parando-o-servidor">Parando o Servidor</h1>
+<p>Para parar a execução do servidor do DashBoard use o comando:</p>
+<pre><code>Crtl + c
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../database/" class="btn btn-neutral float-right" title="Database">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../credits/" class="btn btn-neutral" title="Créditos"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../credits/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../database/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
