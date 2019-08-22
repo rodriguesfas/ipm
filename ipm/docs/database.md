@@ -1,0 +1,3 @@
+## Banco de Dados
+
+- [MongoDB](https://mongodb.com): é um software de banco de escrito na linguagem de programação C++ (o que o torna portável para diferentes sistemas operacionais). Classificado como um programa de banco de dados NoSQL, o MongoDB usa documentos semelhantes a JSON com esquemas, lançado em fevereiro de 2009 pela empresa 10gen e seu desenvolvimento durou quase dois anos, tendo iniciado em 2007. Esse banco de dados foi adotado por entender-se que possui as caracteristicas desejadas para aplicação construida, tais caracteristicas são: banco de dados não relacional, orientado a documento, gratuito, código aberto, multiplataforma e de alta performance para trabalhar com BigData (grande volume de dados).

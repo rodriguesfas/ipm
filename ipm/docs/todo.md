@@ -1,4 +1,4 @@
-# Lista de Atividades Futuras
+# Atividades Futuras
 
 - [ ] Adicionar um Sensor cardiaco com gráfico de batimentos cardiaco.
 https://pulsesensor.com/pages/installing-our-playground-for-pulsesensor-arduino
