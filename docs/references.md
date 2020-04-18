@@ -58,5 +58,7 @@ http://www.smar.com/newsletter/marketing/index23.html
 
 # Sensor Piezo Eletrico
 https://pt.wikipedia.org/wiki/Piezoeletricidade
+
 http://www.farnell.com/datasheets/43406.pdf
+
 http://icp3d.50webs.com/sp4.htm
