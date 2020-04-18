@@ -1,0 +1,15 @@
+{
+    "python.pythonPath": "/home/fasr/anaconda3/envs/dashboard/bin/python",
+    "files.associations": {
+        "*.ipp": "cpp",
+        "array": "cpp",
+        "deque": "cpp",
+        "list": "cpp",
+        "unordered_map": "cpp",
+        "vector": "cpp",
+        "initializer_list": "cpp",
+        "string_view": "cpp",
+        "*.tcc": "cpp"
+    },
+    "arduino.path": "/home/fasr/arduino-1.8.9"
+}
